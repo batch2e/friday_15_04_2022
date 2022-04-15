@@ -1,0 +1,995 @@
+In the following code tell us whether:
+1) The code will compile.
+2) The code will give compilation error.
+3) Code will compile without any output.
+4) Code will compile and show the output.
+
+---------------------------------------------------
+   package infosys.revise.code1;
+
+    public Class Demo1
+    {
+      public static void main(String str[]) {}
+    }
+
+2) 
+As keywords should be in small case.
+We can write str or any name in place of args in command line argument.
+We can even write String []str
+[]---> Array Declaration
+-----------------------------------------------------------------
+   package infosys.revise.code2;
+    public class demo1
+    {
+      public static void main(String str[]) {}
+    }
+3) 
+Convention is class name should be in uppercase but for 
+user defined classes it is not mandatory. 
+--------------------------------------------------------------
+ package infosys.revise.code3;
+    public class Demo
+    {
+      public static void main(String Str[]) {
+       system.out.println("Hello");
+       }
+    }
+2)
+So System is a predefined class and that has to start with uppercase.
+-------------------------------------------------------------
+package infosys.revise.code4;
+    public class Demo
+    {
+      public static void main(String Str[]) {
+        int i;
+        System.out.println("Hello");
+       }
+    }
+
+4) Code will compile and show the output.
+Why not compilation error because we learn that local variable
+should be intialised be before use/access.
+-------------------------------------------------------------
+package infosys.revise.code5;
+    public class Demo
+    {
+      public static void main(String Str[]) {
+        int i;
+        System.out.println("Hello"+i);
+       }
+    }
+2) The code will give compilation error.We are accessing i without
+intialisation.
+---------------------------------------------------------------------------
+package infosys.revise.code6;
+    public class Demo
+    {
+      public static void main(String Str[]) {
+        int i=10;
+        System.out.println("Hello"+i);
+       }
+    }
+4) Code will compile and show the output.
+------------------------------------------------------------------------------------------------------
+Object Oriented Approach===> 
+Procedural Approach ====>   we are more into action or procedure. Which means we concentrate more
+on the steps or sequence of steps to achieve a task. Where we rarely are concerned about the 
+the data. 
+
+       int main()
+         {
+            int num1;
+            int num2;
+            int result;
+            result=num1+num2;
+            printf("%d",result);
+            return 0;
+         
+}
+-----------------------------------------
+      int add(int num1, int num2)
+       {
+           return num1+num2;
+       }
+  
+       int main() {
+          {
+            int result;
+            int n1=10;
+            int n2=20;
+            result=add(n1,n2);
+            printf("%d",result)
+            return 0;
+         }
+-----------------------------------------------
+
+----------------------------------------------------------------------------------------------
+      int add(int num1, int num2)
+       {
+           return num1+num2;
+       }
+     int subtract(int num1, int num2)
+       {
+           return num1-num2;
+       }
+  
+       int main() {
+          {
+            int result;
+            int n1=10;
+            int n2=20;
+            result=add(n1,n2);
+            
+            printf("%d",result)
+            result=subtract(n1,n2); 
+            printf("%d",result); 
+           return 0;
+         }
+--------------------------------------------------------------------------------------
+  // global variables 
+ int num1;
+ int num2;
+    
+    int add(){
+    return num1+num2;
+    }
+
+    int subtract()
+    {
+     return num1-num2;
+    }
+    
+    void main(){
+      num1=10;
+      num2=20;
+      printf("%d",add());
+      printf("%d",subtract());
+     }
+// Advantage being access by all the functions.
+// Any disadvantage?
+
+-----------------------------------------------------------------------------------------
+ 
+ int num1;
+ int num2;
+    
+    int add(){
+    return num1+num2;
+    }
+
+    int subtract()
+    {
+     return num1-num2;
+    }
+    
+   void studentDetails(){
+       // Dealing details of student but it is able to access num1 and num2 though this
+       // method has no relevance with the current code.
+       num1=0;
+       num2=0;
+    }
+    
+    void main(){
+      num1=10;
+      num2=20;
+      printf("%d",add());
+      printf("%d",subtract());
+     }
+// Advantage being access by all the functions.
+// Any disadvantage?
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In object oriented programming we talk about securing the data and we try to work more on
+the front of keeping the data secured from other code which is not concerned with the code.
+So when we talk about Object oriented program, we start talking about a class. 
+Class is a template or a blue print or the design.
+object is bringing the class into existence and it is called as instance of a class.
+  
+   package infosys.demo.classobjectdemo1;
+
+      public class Student  {}
+  So simple class without any instance variable or methods within the class. Even we don't 
+have any main method to start the execution and even we don't have any object of Student class.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------       
+ Now the next example will have Student class and object of Student class.
+      
+    package infosys.demo.classobjectdemo2;
+
+      public class Student  {
+           public static void main(String s[]){
+             Student st=new Student();            
+        }
+       }   
+Basically in the above program Student is a class and having a static method called main
+which is the entry point of the code and the execution of the code starts from main
+where it creates an object of Student class.
+So the above line
+  Student st=new Student() can be express in two lines.
+  Student st; // Which means we have created a reference  variable of Student class and the name of thereference is st. Reference variable are similar to pointers of C but not exactly same as pointers
+because with pointers apart from storing the reference/address of another variable, we can
+perform arithmetic operations which we cannot do with the reference variable of Java.
+
+st=new Student();
+new Student() is creating a new object and the address of newly created object is stored in 
+st which is a reference variable. Henceforth to access the public member/default member of the
+Student class, we will make use of the reference variable and access the object.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.classobjectdemo3;
+
+      public class Student  {
+    /* roll,name and marks are the instance variables/attributes/members variables/properties
+            int roll;
+            String name;
+            int marks;
+  
+            public static void main(String s[]){
+             Student st=new Student();
+             System.out.println(st.roll);
+             System.out.println(st.name);
+             System.out.println(st.marks);
+    
+        }
+       }  
+In the above code , the code will show 0,null,0 . So for the int variable the default value is
+0 and for name which of reference type ( non primitive type) the default value is null.
+The default value is being provided by the default constructor which is provided in the code
+during compilation. Though being coder we have not defined any constructor but constructor is
+working in this code. So how come we know constructor is working because we getting values like
+0, null in place of garbage values.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package infosys.demo.classobjectdemo4;
+
+      public class Student  {
+    /* roll,name and marks are the instance variables/attributes/members variables/properties
+    and within the main method we have initialised the member variable with the data.
+            int roll;
+            String name;
+            int marks;
+  
+            public static void main(String s[]){
+             Student student=new Student();
+             student.roll=1;
+             student.name="Ashok";
+             student.marks=100;
+             System.out.println(student.roll);
+             System.out.println(student.name);
+             System.out.println(student.marks);
+    
+        }
+       }
+[Note: Xyz xyz=new Xyz();
+       Student student=new Student();
+       Book book=new Book();
+       Customer customer=new Customer();
+       Player player=new Player(); :]
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Class is a datatype and object is just like a variable.
+
+    int num;
+    num=10; 
+    // int is a primitive data type.
+    // num is a variable.
+    // In the second line , num is getting initialised with 0
+   Student student;
+    // Student is a data type but it is user defined or non primitive data type;
+    student=new Student();
+   // In the above line we are initialising student reference variable with the address
+   // of a newly created object.
+   <classname> <objectname>=new <classname>(); 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.classobjectdemo5;
+
+  
+      public class Student  {
+    /* roll,name and marks are the instance variables/attributes/members variables/properties
+    and within the main method we have initialised the member variable with the data. */
+            int roll;
+            String name;
+            int marks;
+  
+            public static void main(String s[]){
+             Student student=new Student();
+             
+             // Fully Qualified Name of a class (FQN) the name of a class
+             // along with its package name
+             // Why we are not writing FQN for student class?
+             // We are not writing because our code is already within the package infosys.demo.classobjectdemo5.
+             java.util.Scanner scanner=new java.util.Scanner(System.in);
+             System.out.println("Enter the roll number");
+             student.roll=scanner.nextInt();
+             System.out.println("Enter the name");
+             student.name=scanner.next();
+             System.out.println("Enter the marks");
+             student.marks=scanner.nextInt();
+             System.out.println(student.roll);
+             System.out.println(student.name);
+             System.out.println(student.marks);
+    
+        }
+       }
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+I dont want to write the class name with its package do we have a solution on the same.
+Yes we have we can write the import statement so that while using the class name while
+creating the object of that class, we don't require the mention of the package.
+
+
+package infosys.demo.classobjectdemo6;
+
+import java.util.Scanner;
+// import is a statment to load the classes or get the class/classes which are in different
+// package and we want to include them in the current package.
+  
+      public class Student  {
+    /* roll,name and marks are the instance variables/attributes/members variables/properties
+    and within the main method we have initialised the member variable with the data. */
+            int roll;
+            String name;
+            int marks;
+  
+            public static void main(String s[]){
+             Student student=new Student();
+             
+             // Fully Qualified Name of a class (FQN) the name of a class
+             // along with its package name is not required if we are writing the import statement.
+          
+             Scanner scanner=new Scanner(System.in);
+             System.out.println("Enter the roll number");
+             student.roll=scanner.nextInt();
+             System.out.println("Enter the name");
+             student.name=scanner.next();
+             System.out.println("Enter the marks");
+             student.marks=scanner.nextInt();
+             System.out.println(student.roll);
+             System.out.println(student.name);
+             System.out.println(student.marks);
+    
+        }
+       }
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.classobjectdemo7;
+
+import java.util.Scanner;
+
+  
+      public class Student  {
+    /* roll,name and marks are the instance variables/attributes/members variables/properties
+    and within the main method we have initialised the member variable with the data. */
+         
+  
+            public static void main(String s[]){
+             
+             Scanner scanner=new Scanner(System.in);
+             System.out.println("Enter the roll number");
+             int roll=scanner.nextInt();
+             System.out.println("Enter the name");
+             String name=scanner.next();
+             System.out.println("Enter the marks");
+             int marks=scanner.nextInt();
+             System.out.println(roll);
+             System.out.println(name);
+             System.out.println(marks);
+    
+        }
+       }
+-------------------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.classobjectdemo8;
+
+import java.util.Scanner;
+// import is a statment to load the classes or get the class/classes which are in different
+// package and we want to include them in the current package.
+  
+      public class Student  {
+    /* roll,name and marks are the instance variables/attributes/members variables/properties
+    and within the main method we have initialised the member variable with the data. */
+            int roll;
+            String name;
+            int marks;
+  
+            public static void main(String s[]){
+             Student student=new Student();
+             
+             // Fully Qualified Name of a class (FQN) the name of a class
+             // along with its package name is not required if we are writing the import statement.
+          
+             Scanner scanner=new Scanner(System.in);
+             
+             System.out.println("Enter the roll number");
+             student.roll=scanner.nextInt();
+             System.out.println("Enter the name");
+             student.name=scanner.next();
+             System.out.println("Enter the marks");
+             student.marks=scanner.nextInt();
+             System.out.println(student.roll);
+             System.out.println(student.name);
+             System.out.println(student.marks);
+
+             Student student2=new Student();
+             System.out.println("Enter the roll number");
+             student2.roll=scanner.nextInt();
+             System.out.println("Enter the name");
+             student2.name=scanner.next();
+             System.out.println("Enter the marks");
+             student2.marks=scanner.nextInt();
+             System.out.println(student2.roll);
+             System.out.println(student2.name);
+             System.out.println(student2.marks);
+
+         
+    
+        }
+       }
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+While defining a java class, we usually have instance variables and member methods.
+
+
+   return type of a method methodname(parameters)
+    {
+       // the statements which need to be performed by the method.
+    }
+   
+// method with return type , return type depends on what data type value we are returning from the
+// method
+// We have defined a class called Calculator with 3 instance variables which are num1,num3 and
+// result and type is int . We have only one member method currently with the name add 
+// with return type as int and with no parameter.   
+ public class Calculator{
+     int num1;
+     int num2;
+     int result;
+     
+     int add()  {
+     result=num1+num2;
+     return result;
+    }
+  }  
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.classobjectdemo9;
+
+import java.util.Scanner;
+// import is a statment to load the classes or get the class/classes which are in different
+// package and we want to include them in the current package.
+  
+      public class Student  {
+    /* roll,name and marks are the instance variables/attributes/members variables/properties.
+     we have initialised the members within setData and with displayData we are displaying them. */
+/* Why like previous code we are not using the reference.instance_variable_name?
+  ans: We are already within the class so no need of creating the object within the class
+to access the members.
+ So in the code we have not used any access specifier , so the access specifier is of default type.
+default type is accessible within the same class */
+*/
+            int roll;
+            String name;
+            int marks;
+
+           void setData() {
+              roll=1;
+              name="Akash";
+              marks=100;
+           }
+    
+           void displayData() {
+             System.out.println(roll);
+             System.out.println(name);
+             System.out.println(marks);
+           }
+  
+            public static void main(String s[]){
+             Student student=new Student();
+             student.setData();
+             student.displayData();
+                     
+    
+        }
+       }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package infosys.demo.classobjectdemo10;
+
+import java.util.Scanner;
+// import is a statment to load the classes or get the class/classes which are in different
+// package and we want to include them in the current package.
+  
+      public class Student  {
+    /* roll,name and marks are the instance variables/attributes/members variables/properties.
+     we have initialised the members within setData and with displayData we are displaying them. */
+/* Why like previous code we are not using the reference.instance_variable_name?
+  ans: We are already within the class so no need of creating the object within the class
+to access the members.
+ So in the code we have used public as access specifier , so the access specifier is of public.
+public is accessible within the same class*/
+*/
+           public int roll;
+           public String name;
+           public int marks;
+
+           public void setData() {
+              roll=1;
+              name="Akash";
+              marks=100;
+           }
+    
+           public void displayData() {
+             System.out.println(roll);
+             System.out.println(name);
+             System.out.println(marks);
+           }
+  
+            public static void main(String s[]){
+             Student student=new Student();
+             student.setData();
+             student.displayData();   // 1 Akash 100
+             Student student2=new Student();
+             student2.displayData(); // 0 null 0// because of the default constructor
+             student2.roll=2;
+             student2.name="Suresh";
+             student2.marks=40;
+             student2.displayData(); // 2 Suresh 40   
+             student.setData();
+             student.displayData(); // 1 Akash 100
+    
+        }
+       }
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.classobjectdemo11;
+
+import java.util.Scanner;
+// import is a statment to load the classes or get the class/classes which are in different
+// package and we want to include them in the current package.
+  
+      public class Student  {
+    /* roll,name and marks are the instance variables/attributes/members variables/properties.
+     we have initialised the members within setData and with displayData we are displaying them. */
+/* Why like previous code we are not using the reference.instance_variable_name?
+  ans: We are already within the class so no need of creating the object within the class
+to access the members.
+ So in the code we have used private as access specifier , so the access specifier is of private.
+private is accessible within the same class*/
+
+           private int roll;
+           private String name;
+           private int marks;
+
+           private void setData() {
+              roll=1;
+              name="Akash";
+              marks=100;
+           }
+    
+           private void displayData() {
+             System.out.println(roll);
+             System.out.println(name);
+             System.out.println(marks);
+           }
+  
+            public static void main(String s[]){
+             Student student=new Student();
+             student.setData();
+             student.displayData();   // 1 Akash 100
+             Student student2=new Student();
+             student2.displayData(); // 0 null 0// because of the default constructor
+             student2.roll=2;
+             student2.name="Suresh";
+             student2.marks=40;
+             student2.displayData(); // 2 Suresh 40   
+             student.setData();
+             student.displayData(); // 1 Akash 100
+    
+        }
+       }
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+In the above 3 codes , we concluded that default, public and private are accessible within the same 
+class. What about if we write two separate classes and the members are default
+
+
+package infosys.demo.classobjectdemo12;
+  /*  Currently main method is not present in the Student class. We created a separate class
+to have the main method and the class is StudentMain. 
+Q Can we access the default member of the  StudentClass from the main method StudentMain class?
+A Yes we can access the default and the public member of Student class from the main method
+of StudentMain 
+Q What about the access specifier of Student and StudentMain?
+A the access specifier of Student is default and the access specifier of StudentMain public.
+Q What will be file name for the following code?
+A The file name will be StudentMain as StudentMain is the public class. 
+Q Can we make both the class as public in the same file?
+A No.
+[ Conclusion: We have to give the class name and file name same if the class is with public 
+access specifier. Now if multiple classes are public for example in a file we wrote public class Student{} public class Employee {}. Now what name we are going to give to the file because
+we have two public classes. We try to keep the class which is having the main method as public.]
+      */
+import java.util.Scanner;
+      
+ class Student  {
+            int roll;
+            String name;
+            int marks;
+
+           void setData() {
+              roll=1;
+              name="Akash";
+              marks=100;
+           }
+    
+           void displayData() {
+             System.out.println(roll);
+             System.out.println(name);
+             System.out.println(marks);
+           }
+ 
+   } // end of Student class
+ 
+
+
+         public class StudentMain {
+            {
+            public static void main(String s[]){
+             Student student=new Student();
+             student.setData();
+             student.displayData();
+            }
+       }  // end of StudentMain
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/* We declare member variables as private and member methods as public. Declaring private
+won't make the variables being accessed outside the class where they are defined.  */
+
+   package infosys.demo.classobjectdemo13;
+
+   class student {
+      private int roll;
+      private String name;
+      private int marks;
+
+      public void setData() {
+              roll=1;
+              name="Akash";
+              marks=100;
+           }
+    
+      public void displayData() {
+             System.out.println(roll);
+             System.out.println(name);
+             System.out.println(marks);
+           }
+ 
+   } // end of Student class
+   public class StudentMain {
+            {
+            public static void main(String s[]){
+             Student student=new Student();
+             System.out.println(student.roll);  // roll is not accessible as roll is the private member of the Student class and we are trying to access it from a different class StudentMain 
+             student.setData();
+             student.displayData();
+            }
+       }  // end of StudentMain
+-----------------------------------------------------------------------------------------------------------------------------------------------
+* In Object Oriented programming we need to define a class with instance variables and member methods.
+* Always we try  to work with multiple classes. This increases the modularity of the code.
+* The members ( instance variables/ data) we declare as private because data should be kept secured.
+* The member methods are usually public.
+* We are making methods as public so that they can be accessed outside the class and so that
+indirectly we can work with data. We don't have direct access to the data from outside the
+class and that we try to do with the help of methods. 
+* If the classes are in the same package ( in our examples till now ) we are not able to access
+the private member from outside the class but we are able to access the public member.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+We have Pen and we need to design a class for the same. Can suggest the attributes and behavior/methods/actions related to the Pen class.
+  
+   public class Pen  {
+        String brand;
+        String color;
+        float price;
+
+        public void writing() {}
+        public void drawing() {}
+        public void highlighting() {}
+        
+    }
+Pen pen=new Pen();
+Pen p=new Pen();
+Pen p=new Pen();
+--------------------------------------------------------------------------------------------------
+We have Paper and we need to design a class for the same.
+   public class Paper {
+      String size;
+      String texture;
+      String color;
+      String quality;
+      String paperType;
+
+     public void printing() {}
+     public void painting()  {}
+     public void wrapping()  {}
+     public void sketching() {}
+    }
+Paper paper=new Paper();
+<classname> <objectname>=new <classname>();
+----------------------------------------------------------------------------------------------------
+We were writing multiple class and all the classes are in same file. But that is not good. 
+From the perspective of coding we should create separate file for each of the class being designed.
+
+  package infosys.demo.classobjectdemo14;
+
+public class Student {
+ private int roll;
+ private String name;
+ private int marks;
+ 
+ public void setStudentData()
+ {
+	 roll=1;
+	 name="Amit";
+	 marks=70;
+ }
+ public void displayData()
+ {
+	 System.out.println(roll);
+	 System.out.println(name);
+	 System.out.println(marks);
+ }
+ 
+}
+
+
+package infosys.demo.classobjectdemo14;
+
+public class StudentMain {
+
+	public static void main(String[] args) {
+		Student student=new Student();
+		student.setStudentData();
+		student.displayData();
+	}
+
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------- 
+How to create multiple objects?
+
+     Student student1=new Student();
+     Student student2=new Student();
+     Student student3=new Student();
+     student1.setStudentData();
+     student2.setStudentData();
+     student3.setStudentData();
+     student1.displayData();    // 1 Amit 70 
+     student2.displayData();    // 1 Amit 70
+     student3.displayData();    // 1 Amit 70
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q. The above approach is giving me the same data for all the students. How to solve this?
+
+* go for different parameters ( parameterized method). So which method will be parameterized?
+package infosys.demo.classobjectdemo15;
+
+public class Student {
+ private int roll;
+ private String name;
+ private int marks;
+ 
+ public void setStudentData(int r,String nm, int m)
+ {
+	 roll=r;
+	 name=nm;
+	 marks=m;
+ }
+ public void displayData()
+ {
+	 System.out.println(roll);
+	 System.out.println(name);
+	 System.out.println(marks);
+ }
+ 
+}
+
+package infosys.demo.classobjectdemo15;
+
+public class StudentMain {
+
+	public static void main(String[] args) {
+		Student student=new Student();
+		student.setStudentData(1,"Ram",50);
+		student.displayData();
+                Student student1=new Student();
+                student1.setStudentData(2,"Nidhi",45);
+                student1.displayData();
+                
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q What will be the output of this code?
+
+package infosys.demo.classobjectdemo16;
+
+public class Student {
+ private int roll;
+ private String name;
+ private int marks;
+ 
+ public void setStudentData(int r,String nm, int m)
+ {
+	int roll=r;
+	String name=nm;
+	int marks=m;
+ }
+ public void displayData()
+ {
+	 System.out.println(roll);
+	 System.out.println(name);
+	 System.out.println(marks);
+ }
+ 
+}
+
+
+package infosys.demo.classobjectdemo16;
+
+public class StudentMain {
+
+	public static void main(String[] args) {
+		Student student=new Student();
+		student.setStudentData(1,"Ram",50);
+		student.displayData();
+                Student student1=new Student();
+                student1.setStudentData(2,"Nidhi",45);
+                student1.displayData();
+                
+	}
+
+}
+
+In the above program we have instance variables and at same time we have local variables
+with the same name. local variables will get the preference in comparison to the instance
+variable. In the above case maybe by mistake we declared local variable with the same name.
+So in that case the local variables are assigned with the values which are comming as 
+/ From local variable r the value is getting 
+ // stored in the local variable roll and
+ // same with rest of the two variables 
+ // namely name and marks
+// And ultimately the instance variables are not initialied with the data passed as parameter.
+// and it is imitialised with the default value. That is the reason we are getting the 
+// values as 0, null and 0.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q So we can use Scanner object to get different set of values for the objects.
+Ans Yes
+Q So should scanner be local to the method setData or it should be one of instance variable
+like roll, name and marks.
+Ans It will be best if we declare it as a local because we never heard that Students are
+having attribute like scanner but we know student can have attribute like roll,name and marks.
+
+
+package infosys.demo.classobjectdemo17;
+
+import java.util.Scanner;
+
+public class Student {
+ private int roll;
+ private String name;
+ private int marks;
+ 
+ public void setStudentData()
+ {
+        Scanner sc=new Scanner(System.in);
+	roll=sc.nextInt();
+	name=sc.next();
+	marks=sc.nextInt();
+ }
+ public void displayData()
+ {
+	 System.out.println(roll);
+	 System.out.println(name);
+	 System.out.println(marks);
+ }
+ 
+}
+
+
+package infosys.demo.classobjectdemo17;
+
+public class StudentMain {
+
+	public static void main(String[] args) {
+		Student student=new Student();
+		student.setStudentData();
+		student.displayData();
+                Student student1=new Student();
+                student1.setStudentData();
+                student1.displayData();
+                
+	}
+
+}
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q So currently suppose the student is a new joinee and we dont need to enter his or her marks.
+But the way we wrote our program , we are forced to enter his or her marks.So how it can
+be solved?
+Ans: For every propery we should have a pair of methods:-
+One method to set the values ====> setter method
+One method to access/display the values ===> getter method
+
+package infosys.demo.classobjectdemo18;
+   
+     public class Student {
+      private int roll;
+      private String name;
+      private int marks;
+     // We have a specific way of writing this setter methods
+     // the return type of setter method will be always void
+     // setter method starts with the word set followed by the attribute name making the 
+     // first character in uppercase
+      // parameter type will be same as the type of the attribute for which we are 
+      // setting the value
+      public void setRoll(int r){
+          roll=r;
+      }
+      // get method starts with get followed by the attribute name as first character in 
+      // uppercase
+      // return datatype will be same as the type of the attribute for which we are 
+      // accessing/reading the value
+      public int getRoll(){
+        return roll;
+      }
+      public void setName(String nm){
+       name=nm;
+      }
+      public String getName(){
+       return name;
+      }
+      public void setMarks(int m) {
+       marks=m;
+      }
+      public int getMarks() {
+        return marks;
+      }
+     } 
+      
+
+    package infosys.demo.classobjectdemo18;
+     public class StudentMain{
+       public static void main (String s[]) {
+         Student student1=new Student();
+         Student student2=new Student();
+         Scanner scanner=new Scanner(System.in);
+         System.out.println("Enter the roll number");
+         int roll=scanner.nextInt();
+         student1.setRoll(roll);
+         System.out.println("Enter the name");
+         String name=scanner.next();
+         student1.setName(name);
+         System.out.println("Enter the marks");
+         int marks=scanner.nextInt();
+         student1.setMarks(marks);
+         System.out.println("The details of the first student");
+         System.out.println(student1.getRoll());  // Withing System.out.println we can call a 
+         // method which is returning a value. Within System.out.println we cannot call a 
+         // method which return type is void
+         System.out.println(student1.setRoll(roll));
+         System.out.println(student1.getName());
+         System.out.println(student1.getMarks());
+         System.out.println("Enter the roll number");
+         student2.setRoll(scanner.nextInt());
+         System.out.println("Enter the name");
+         student2.setName(scanner.next());
+         /* System.out.println("Enter the marks");
+         student2.setMarks(scanner.nextInt()); */
+         System.out.println(student2.setRoll(roll));
+         System.out.println(student2.getName());
+        /*  System.out.println(student2.getMarks()); */
+         
+         
+ The above example is of Encapsulation. In encapsulation we keep instance variables and methods within a class. After that we decide that member variables
+need to be kept hidden within the class. So we declare them as private and we make member methods accessible by having them as default or public. public will 
+me mostly used. Till all the classes are in same package , default and public behave in the same way.
+       
+         
