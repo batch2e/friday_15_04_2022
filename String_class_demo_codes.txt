@@ -1,0 +1,220 @@
+package infosys.demo.stringdemos;
+
+public class StringDemo1 {
+// How we create String objects?
+	public static void main(String[] args) {
+	// In line 8 we created a reference 
+	// with the name str1 and it is storing the address of the literal/string constant 
+		String str1="Hello"; // In RHS the constant is
+		// an object . So Hello is an object
+	   // String literals/constants are enclose within " "
+      System.out.println(str1);    // Hello
+      System.out.println("str1");  // str1 as such
+      // We never put variables within " "
+      String str2="Hi";
+      System.out.println(str2);
+      String str3="Bye";
+      System.out.println(str3);
+      String str4=new String("Hello");
+      // We are creating a new object ( Whatever we are writing in RHS)
+      // new is a keyword used for dynamic memory allocation ( memory allocation done
+      // during the runtime.
+      // We are using the parameterized constructor of String class where the
+      // parameter is String literal Hello
+      // and then we are storing the address of th object created in RHS
+      // to the reference variable str4 which is LHS
+      System.out.println(str4);
+      char ch[]= {'H','e','l','l','o'};
+      String str5=new String(ch);
+	  // In line 28 we are passing a character array as parameter to the
+      // constructor and creating the new object and storing the reference in str5v
+	  System.out.println(str5);
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.stringdemos;
+
+public class StringDemo2 {
+// How we can compare two strings for equality 
+// ==
+// boolean equals(Object obj); // Currently we talk about String
+// object as a parameter
+	public static void main(String[] args) {
+	String str1="Hello";
+	String str2="Hello";  // In this case the new String Hello is not
+	// created as Hello is already available in the constant string pool
+	// so in line 10 str2 again points to the same String literal
+	// which got created in line 9.
+	// == is used to check whether the reference variable are
+	// storing the same object or not
+	System.out.println(str1==str2); // true
+    // equals check for the content of the object rather than the 
+	// reference
+	System.out.println(str1.equals(str2)); // true
+    
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+package infosys.demo.stringdemos;
+
+public class StringDemo3 {
+// How we can compare two strings for equality 
+// ==
+// boolean equals(Object obj); // Currently we talk about String
+// object as a parameter
+	public static void main(String[] args) {
+	String str1=new String("Hello");
+	String str2=new String("Hello"); 
+	// In the above two lines 2 String objects are getting created
+	// Because this time due to the usage of new , two different
+	// objects are created and one is refered by str1 and another by str2.
+	System.out.println(str1==str2); // false
+   	System.out.println(str1.equals(str2)); // true
+    
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.stringdemos;
+
+public class StringDemo4 {
+
+	public static void main(String[] args) {
+	
+		String str1="Hello";
+		int length=str1.length();
+		System.out.println(length);
+		System.out.println(str1.length());
+		int length2="Welcome".length();
+		// Why the above way of using method is
+		// possible because String literal 
+		// itself is an object
+		System.out.println(length2);
+
+	}
+
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.stringdemos;
+
+public class StringDemo5 {
+
+	public static void main(String[] args) {
+	
+		String str1="Hello";
+		String str2="World";
+		String str3=str1+str2;
+		System.out.println(str3);
+		String str4=str1.concat(str2);
+		System.out.println(str4);
+        String str5="Bye";
+        String str6=str1.concat(str2).concat(str5);
+        System.out.println(str6);
+	    int num=10;
+	    String result="The result is"+num;
+	    System.out.println(result);
+	    // Anything concatenated with String gets
+	    // converted into String
+	}
+
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.stringdemos;
+
+public class StringDemo6 {
+	public static void main(String[] args) {
+		
+		String str1="Hello";
+		String str2="hello";
+		System.out.println(str1.equals(str2));
+		System.out.println(str1.equalsIgnoreCase(str2));
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------
+package infosys.demo.stringdemos;
+
+public class StringDemo7 {
+
+	public static void main(String[] args) {
+		
+		String lower="HELLO".toLowerCase();
+		String upper="hello".toUpperCase();
+		System.out.println(lower);
+		System.out.println(upper);
+
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.stringdemos;
+
+public class StringDemo8 {
+
+	public static void main(String[] args) {
+		
+		String str="Welcome";
+		// index position starts from 0
+		char ch=str.charAt(0);
+        System.out.println(ch);
+        ch=str.charAt(20);  // java.lang.StringIndexOutOfBoundsException:
+        System.out.println(ch);
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.stringdemos;
+
+public class StringDemo9 {
+
+	public static void main(String[] args) {
+		String str="Welcome";
+		String subString=str.substring(1,5);  
+		 // String substring(startIndex,endIndex)
+		// A substring from  position mentioned
+		// as parameter one(startIndex) in our example it is 1
+		// to endIndex-1
+      System.out.println(subString); //elc
+      subString=str.substring(2);   // String substring(startIndex)
+      // The above form of SubString returns 
+      // The substring from the startIndex and
+      // as we don;t have any endIndex so it 
+      // displays till the end of the String
+      System.out.println(subString);
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.stringdemos;
+
+public class StringDemo10 {
+
+	public static void main(String[] args) {
+	String str="Welcome";
+	boolean b=str.contains("come");
+	System.out.println(b); // true
+	b=str.contains("done");
+	System.out.println(b);
+	
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+package infosys.demo.stringdemos;
+
+public class StringDemo11 {
+
+	public static void main(String[] args) {
+	String str="Welcome";
+	String str2=str.replace('e','a');
+	System.out.println(str2);  // Walcoma
+	
+	
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------
+
